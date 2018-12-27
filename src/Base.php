@@ -2,8 +2,8 @@
 
 namespace LaravelExceptions\Stripe;
 
-use Throwable;
 use Illuminate\Support\Facades\Auth;
+use Throwable;
 
 abstract class Base extends \Exception
 {
@@ -23,7 +23,7 @@ abstract class Base extends \Exception
      */
     public function __construct(Throwable $exception)
     {
-        parent::__construct($exception->getMessage(), (int)$exception->getCode(), $exception);
+        parent::__construct($exception->getMessage(), (int) $exception->getCode(), $exception);
     }
 
     /**
@@ -48,7 +48,8 @@ abstract class Base extends \Exception
     /**
      * Determine if the exception is in the "do not report" list.
      *
-     * @param  \Throwable $exception
+     * @param \Throwable $exception
+     *
      * @return bool
      */
     protected function shouldntReport(Throwable $exception)
@@ -69,11 +70,10 @@ abstract class Base extends \Exception
         try {
             return array_filter([
                 'userId' => Auth::id(),
-                'email' => Auth::user() ? Auth::user()->email : null,
+                'email'  => Auth::user() ? Auth::user()->email : null,
             ]);
         } catch (Throwable $e) {
             return [];
         }
     }
-
 }
