@@ -6,7 +6,7 @@ use Throwable;
 use Stripe\Error;
 use Illuminate\Support\Facades\Response;
 
-class OAuthException extends Base
+class OAuthException extends AbstractException
 {
     /**
      * Where to redirect when an exception occurred.
@@ -16,9 +16,7 @@ class OAuthException extends Base
     protected $redirectTo;
 
     /**
-     * A list of the exception types that not be reported.
-     *
-     * @var array
+     * {@inheritdoc}
      */
     protected $dontReport = [
         Error\OAuth\InvalidGrant::class,
@@ -42,8 +40,7 @@ class OAuthException extends Base
      */
     public function render($request)
     {
-        $message = 'Unable to authorize with Stripe.';
-
-        return Response::redirectTo($this->redirectTo)->with('error', $message);
+        return Response::redirectTo($this->redirectTo)
+            ->with('error', 'Unable to authorize with Stripe.');
     }
 }

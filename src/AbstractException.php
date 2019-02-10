@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Log;
 use Throwable;
 
-abstract class Base extends \Exception
+abstract class AbstractException extends \Exception
 {
     /**
      * A list of the exception types that not be reported.

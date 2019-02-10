@@ -5,12 +5,10 @@ namespace Ankurk91\StripeExceptions;
 use Illuminate\Support\Facades\Response;
 use Stripe\Error;
 
-class PaymentException extends Base
+class PaymentException extends AbstractException
 {
     /**
-     * A list of the exception types that not be reported.
-     *
-     * @var array
+     * {@inheritdoc}
      */
     protected $dontReport = [
         Error\ApiConnection::class,
