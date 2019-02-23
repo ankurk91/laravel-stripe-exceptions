@@ -17,11 +17,7 @@ class PaymentException extends AbstractException
     ];
 
     /**
-     * Render the exception into an HTTP response.
-     *
-     * @param \Illuminate\Http\Request $request
-     *
-     * @return \Illuminate\Http\JsonResponse
+     * {@inheritdoc}
      */
     public function render($request)
     {

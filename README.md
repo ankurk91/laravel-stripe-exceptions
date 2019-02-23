@@ -5,7 +5,9 @@
 [![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE.txt)
 [![Downloads](https://img.shields.io/packagist/dt/ankurk91/laravel-stripe-exceptions.svg)](https://packagist.org/packages/ankurk91/laravel-stripe-exceptions/stats)
 
-This package makes it easy to handle [Stripe](https://github.com/stripe/stripe-php) exceptions in Laravel v5.7
+This package makes it easy to handle [Stripe](https://github.com/stripe/stripe-php) exceptions in Laravel v5.7+
+
+How do you handle Stripe errors? Are you repeating [same code](https://stripe.com/docs/api/errors/handling?lang=php) again and again?
 
 ## Installation
 You can install the package via composer:
@@ -16,31 +18,37 @@ composer require ankurk91/laravel-stripe-exceptions
 ## Usage
 Handle Stripe charge/transfer exceptions:
 ```php
-    try {
-        $response = \Stripe\Charge::create([
-            'source' => request('source'),
-            'amount' => 1000,
-            'currency' => 'usd',
-        ]);
-    } catch (\Throwable $exception) {
-        throw new \Ankurk91\StripeExceptions\PaymentException($exception);
-    }
+<?php
+
+try {
+    $response = \Stripe\Charge::create([
+        'source' => request('source'),
+        'amount' => 1000,
+        'currency' => 'usd',
+    ]);
+} catch (\Throwable $exception) {
+    // send a JSON response
+    throw new \Ankurk91\StripeExceptions\PaymentException($exception);
+}
 ```
 
 Handle Stripe connect exceptions:
 ```php
-    try {
-        $response = \Stripe\OAuth::token([
-            'grant_type' => 'authorization_code',
-            'code' => request('code')
-        ]);
-    } catch (\Throwable $exception) {
-        throw new \Ankurk91\StripeExceptions\OAuthException($exception, route('stripe.failed'));
-    }
+<?php
+
+try {
+    $response = \Stripe\OAuth::token([
+        'grant_type' => 'authorization_code',
+        'code' => request('code')
+    ]);
+} catch (\Throwable $exception) {
+    // redirect with failed message
+    throw new \Ankurk91\StripeExceptions\OAuthException($exception, route('stripe.failed'));
+}
 ```
 
 ## Features
-* This package takes advantage of Laravel's inbuilt "Reportable & Renderable Exceptions".
+* This package takes advantage of Laravel's inbuilt [Reportable & Renderable Exceptions](https://laravel.com/docs/5.7/errors#renderable-exceptions).
 * All exceptions will be reported when `APP_DEBUG` is `true`
 * It also captures logged-in user information when an exception gets reported.
 

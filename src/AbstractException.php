@@ -73,10 +73,18 @@ abstract class AbstractException extends \Exception
         try {
             return array_filter([
                 'userId' => Auth::id(),
-                'email'  => Auth::user() ? Auth::user()->email : null,
             ]);
         } catch (Throwable $e) {
             return [];
         }
     }
+
+    /**
+     * Render the exception into an HTTP response.
+     *
+     * @param \Illuminate\Http\Request $request
+     *
+     * @return \Illuminate\Http\Response
+     */
+    abstract function render($request);
 }
