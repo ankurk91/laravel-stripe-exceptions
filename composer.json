@@ -28,6 +28,13 @@
     "sort-packages": true,
     "preferred-install": "dist"
   },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Ankurk91\\StripeExceptions\\StripeServiceProvider"
+      ]
+    }
+  },
   "minimum-stability": "dev",
   "prefer-stable": true
 }

@@ -4,6 +4,7 @@ namespace Ankurk91\StripeExceptions;
 
 use Illuminate\Support\Facades\Response;
 use Stripe\Error;
+use Illuminate\Support\Facades\Lang;
 
 class PaymentException extends AbstractException
 {
@@ -22,24 +23,24 @@ class PaymentException extends AbstractException
     public function render($request)
     {
         $e = $this->getPrevious();
-        $message = 'Something went wrong.';
+        $message = Lang::trans('stripe::exceptions.payment.unknown');
         $errorCode = 500;
 
         // https://stripe.com/docs/api/errors/handling?lang=php
         if ($e instanceof Error\Card) {
             $errorCode = 400;
-            $message = data_get($e->getJsonBody(), 'error.message', 'Invalid card.');
+            $message = data_get($e->getJsonBody(), 'error.message', Lang::trans('stripe::exceptions.payment.invalid_card'));
         } elseif ($e instanceof Error\RateLimit) {
-            $message = 'Too many requests. Please try again later.';
+            $message = Lang::trans('stripe::exceptions.payment.rate_limit');
         } elseif ($e instanceof Error\InvalidRequest) {
             $errorCode = 400;
-            $message = 'Invalid payment request.';
+            $message = Lang::trans('stripe::exceptions.payment.bad_request');
         } elseif ($e instanceof Error\Authentication) {
-            $message = 'Error authenticating with payment gateway.';
+            $message = Lang::trans('stripe::exceptions.payment.authentication');
         } elseif ($e instanceof Error\ApiConnection) {
-            $message = 'Error communicating payment gateway.';
+            $message = Lang::trans('stripe::exceptions.payment.connection');
         } elseif ($e instanceof Error\Base) {
-            $message = 'Unable to proceed with payment at this moment.';
+            $message = Lang::trans('stripe::exceptions.payment.general');
         }
 
         return Response::json(compact('message'), $errorCode);

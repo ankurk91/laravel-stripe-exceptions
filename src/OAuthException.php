@@ -5,6 +5,7 @@ namespace Ankurk91\StripeExceptions;
 use Throwable;
 use Stripe\Error;
 use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Lang;
 
 class OAuthException extends AbstractException
 {
@@ -37,6 +38,6 @@ class OAuthException extends AbstractException
     public function render($request)
     {
         return Response::redirectTo($this->redirectTo)
-            ->with('error', 'Unable to authorize with Stripe.');
+            ->with('error', Lang::trans('stripe::exceptions.oauth.failed'));
     }
 }
