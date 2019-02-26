@@ -37,7 +37,18 @@ class OAuthException extends AbstractException
      */
     public function render($request)
     {
+        $e = $this->getPrevious();
+        $message = Lang::trans('stripe::exceptions.oauth.unknown');
+
+        if ($e instanceof Error\OAuth\InvalidClient) {
+            $message = Lang::trans('stripe::exceptions.oauth.invalid_client');
+        } elseif ($e instanceof Error\OAuth\InvalidRequest) {
+            $message = Lang::trans('stripe::exceptions.oauth.invalid_request');
+        } elseif ($e instanceof Error\OAuth\OAuthBase) {
+            $message = Lang::trans('stripe::exceptions.oauth.general');
+        }
+
         return Response::redirectTo($this->redirectTo)
-            ->with('error', Lang::trans('stripe::exceptions.oauth.failed'));
+            ->with('error', $message);
     }
 }

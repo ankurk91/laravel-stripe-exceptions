@@ -34,7 +34,7 @@ class PaymentException extends AbstractException
             $message = Lang::trans('stripe::exceptions.payment.rate_limit');
         } elseif ($e instanceof Error\InvalidRequest) {
             $errorCode = 400;
-            $message = Lang::trans('stripe::exceptions.payment.bad_request');
+            $message = Lang::trans('stripe::exceptions.payment.invalid_request');
         } elseif ($e instanceof Error\Authentication) {
             $message = Lang::trans('stripe::exceptions.payment.authentication');
         } elseif ($e instanceof Error\ApiConnection) {
