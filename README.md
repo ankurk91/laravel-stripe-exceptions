@@ -42,15 +42,22 @@ try {
         'code' => request('code')
     ]);
 } catch (\Throwable $exception) {
-    // redirect with failed message
+    // redirect with failed error message
     throw new \Ankurk91\StripeExceptions\OAuthException($exception, route('stripe.failed'));
 }
 ```
 
+## Modifying error messages
+You can publish the translation messages via this command
+```
+php artisan vendor:publish --provider="Ankurk91\StripeExceptions\StripeServiceProvider" --tag=translations
+```
+
 ## Features
-* This package takes advantage of Laravel's inbuilt [Reportable & Renderable Exceptions](https://laravel.com/docs/5.7/errors#renderable-exceptions).
-* All exceptions will be reported when `APP_DEBUG` is `true`
-* It also captures logged-in user information when an exception gets reported.
+* Takes advantage of Laravel's inbuilt [Reportable & Renderable Exceptions](https://laravel.com/docs/5.8/errors#renderable-exceptions).
+* Reports all exceptions when `APP_DEBUG` is `true`
+* Prevents logging of exceptions caused by user input, for example 'Invalid Card'
+* Captures logged-in user information when an exception gets reported
 
 ## Security
 If you discover any security related issues, please email `pro.ankurk1[at]gmail[dot]com` instead of using the issue tracker.

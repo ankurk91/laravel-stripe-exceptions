@@ -25,7 +25,7 @@ class OAuthException extends AbstractException
         Error\OAuth\UnsupportedResponseType::class,
     ];
 
-    public function __construct(Throwable $exception, $redirectTo)
+    public function __construct(Throwable $exception, string $redirectTo)
     {
         $this->redirectTo = $redirectTo;
 
