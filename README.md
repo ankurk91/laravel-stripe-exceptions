@@ -28,7 +28,7 @@ try {
     ]);
 } catch (\Throwable $exception) {
     // send a JSON response
-    throw new \Ankurk91\StripeExceptions\PaymentException($exception);
+    throw new \Ankurk91\StripeExceptions\ApiException($exception);
 }
 ```
 
@@ -61,6 +61,9 @@ php artisan vendor:publish --provider="Ankurk91\StripeExceptions\StripeServicePr
 
 ## Security
 If you discover any security related issues, please email `pro.ankurk1[at]gmail[dot]com` instead of using the issue tracker.
+
+## Changelog
+Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
 
 ## License
 The [MIT](https://opensource.org/licenses/MIT) License.

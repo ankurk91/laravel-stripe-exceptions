@@ -48,7 +48,6 @@ class OAuthException extends AbstractException
             $message = Lang::trans('stripe::exceptions.oauth.general');
         }
 
-        return Response::redirectTo($this->redirectTo)
-            ->with('error', $message);
+        return Response::redirectTo($this->redirectTo)->with('error', $message);
     }
 }

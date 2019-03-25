@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Response;
 use Stripe\Error;
 use Illuminate\Support\Facades\Lang;
 
-class PaymentException extends AbstractException
+class ApiException extends AbstractException
 {
     /**
      * {@inheritdoc}
@@ -23,24 +23,24 @@ class PaymentException extends AbstractException
     public function render($request)
     {
         $e = $this->getPrevious();
-        $message = Lang::trans('stripe::exceptions.payment.unknown');
+        $message = Lang::trans('stripe::exceptions.api.unknown');
         $errorCode = 500;
 
         // https://stripe.com/docs/api/errors/handling?lang=php
         if ($e instanceof Error\Card) {
             $errorCode = 400;
-            $message = data_get($e->getJsonBody(), 'error.message', Lang::trans('stripe::exceptions.payment.invalid_card'));
+            $message = data_get($e->getJsonBody(), 'error.message', Lang::trans('stripe::exceptions.api.invalid_card'));
         } elseif ($e instanceof Error\RateLimit) {
-            $message = Lang::trans('stripe::exceptions.payment.rate_limit');
+            $message = Lang::trans('stripe::exceptions.api.rate_limit');
         } elseif ($e instanceof Error\InvalidRequest) {
             $errorCode = 400;
-            $message = Lang::trans('stripe::exceptions.payment.invalid_request');
+            $message = Lang::trans('stripe::exceptions.api.invalid_request');
         } elseif ($e instanceof Error\Authentication) {
-            $message = Lang::trans('stripe::exceptions.payment.authentication');
+            $message = Lang::trans('stripe::exceptions.api.authentication');
         } elseif ($e instanceof Error\ApiConnection) {
-            $message = Lang::trans('stripe::exceptions.payment.connection');
+            $message = Lang::trans('stripe::exceptions.api.connection');
         } elseif ($e instanceof Error\Base) {
-            $message = Lang::trans('stripe::exceptions.payment.general');
+            $message = Lang::trans('stripe::exceptions.api.general');
         }
 
         return Response::json(compact('message'), $errorCode);
