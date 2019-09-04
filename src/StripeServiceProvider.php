@@ -27,6 +27,6 @@ class StripeServiceProvider extends ServiceProvider
      */
     public function register()
     {
-
+        //
     }
 }

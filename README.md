@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE.txt)
 [![Downloads](https://img.shields.io/packagist/dt/ankurk91/laravel-stripe-exceptions.svg)](https://packagist.org/packages/ankurk91/laravel-stripe-exceptions/stats)
 
-This package makes it easy to handle [Stripe](https://github.com/stripe/stripe-php) exceptions in Laravel v5.7+
+This package makes it easy to handle [Stripe](https://github.com/stripe/stripe-php) exceptions in Laravel v6.0+
 
 How do you handle Stripe errors? Are you repeating [same code](https://stripe.com/docs/api/errors/handling?lang=php) again and again?
 
@@ -54,7 +54,7 @@ php artisan vendor:publish --provider="Ankurk91\StripeExceptions\StripeServicePr
 ```
 
 ## Features
-* Takes advantage of Laravel's inbuilt [Reportable & Renderable Exceptions](https://laravel.com/docs/5.8/errors#renderable-exceptions).
+* Takes advantage of Laravel's inbuilt [Reportable & Renderable Exceptions](https://laravel.com/docs/6.0/errors#renderable-exceptions).
 * Reports all exceptions when `APP_DEBUG` is `true`
 * Prevents logging of exceptions caused by user input, for example 'Invalid Card'
 * Captures logged-in user information when an exception gets reported

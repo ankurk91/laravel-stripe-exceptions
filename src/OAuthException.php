@@ -3,7 +3,7 @@
 namespace Ankurk91\StripeExceptions;
 
 use Throwable;
-use Stripe\Error;
+use Stripe\Exception;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Lang;
 
@@ -20,9 +20,9 @@ class OAuthException extends AbstractException
      * {@inheritdoc}
      */
     protected $dontReport = [
-        Error\OAuth\InvalidGrant::class,
-        Error\OAuth\InvalidScope::class,
-        Error\OAuth\UnsupportedResponseType::class,
+        Exception\OAuth\InvalidGrantException::class,
+        Exception\OAuth\InvalidScopeException::class,
+        Exception\OAuth\UnsupportedResponseTypeException::class,
     ];
 
     public function __construct(Throwable $exception, string $redirectTo)
@@ -38,14 +38,14 @@ class OAuthException extends AbstractException
     public function render($request)
     {
         $e = $this->getPrevious();
-        $message = Lang::trans('stripe::exceptions.oauth.unknown');
+        $message = Lang::get('stripe::exceptions.oauth.unknown');
 
-        if ($e instanceof Error\OAuth\InvalidClient) {
-            $message = Lang::trans('stripe::exceptions.oauth.invalid_client');
-        } elseif ($e instanceof Error\OAuth\InvalidRequest) {
-            $message = Lang::trans('stripe::exceptions.oauth.invalid_request');
-        } elseif ($e instanceof Error\OAuth\OAuthBase) {
-            $message = Lang::trans('stripe::exceptions.oauth.general');
+        if ($e instanceof Exception\OAuth\InvalidClientException) {
+            $message = Lang::get('stripe::exceptions.oauth.invalid_client');
+        } elseif ($e instanceof Exception\OAuth\InvalidRequestException) {
+            $message = Lang::get('stripe::exceptions.oauth.invalid_request');
+        } elseif ($e instanceof Exception\OAuth\OAuthErrorException) {
+            $message = Lang::get('stripe::exceptions.oauth.general');
         }
 
         return Response::redirectTo($this->redirectTo)->with('error', $message);
