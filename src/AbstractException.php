@@ -22,7 +22,7 @@ abstract class AbstractException extends \Exception
     /**
      * Base constructor.
      *
-     * @param Throwable $exception
+     * @param  Throwable  $exception
      */
     public function __construct(Throwable $exception)
     {
@@ -51,11 +51,11 @@ abstract class AbstractException extends \Exception
     /**
      * Determine if the exception is in the "do not report" list.
      *
-     * @param \Throwable $exception
+     * @param  \Throwable  $exception
      *
      * @return bool
      */
-    protected function shouldNotReport(Throwable $exception)
+    public function shouldNotReport(Throwable $exception)
     {
         return !Config::get('app.debug') &&
             !is_null(Arr::first($this->dontReport, function ($type) use ($exception) {
@@ -82,7 +82,7 @@ abstract class AbstractException extends \Exception
     /**
      * Render the exception into an HTTP response.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param  \Illuminate\Http\Request  $request
      *
      * @return \Illuminate\Http\Response
      */

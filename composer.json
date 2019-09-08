@@ -22,6 +22,10 @@
     "illuminate/translation": "^6.0",
     "stripe/stripe-php": "^7.0.0"
   },
+  "require-dev": {
+    "orchestra/testbench": "^4.0",
+    "phpunit/phpunit": "^8.3"
+  },
   "autoload": {
     "psr-4": {
       "Ankurk91\\StripeExceptions\\": "src/"
@@ -37,6 +41,14 @@
         "Ankurk91\\StripeExceptions\\StripeServiceProvider"
       ]
     }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Ankurk91\\Tests\\LaravelStripeExceptions\\": "tests/"
+    }
+  },
+  "scripts": {
+    "test": "vendor/bin/phpunit"
   },
   "minimum-stability": "dev",
   "prefer-stable": true
