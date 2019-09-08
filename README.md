@@ -1,9 +1,9 @@
 # Stripe Exceptions for Laravel
 
-[![Packagist](https://img.shields.io/packagist/v/ankurk91/laravel-stripe-exceptions.svg)](https://packagist.org/packages/ankurk91/laravel-stripe-exceptions)
-[![GitHub tag](https://img.shields.io/github/tag/ankurk91/laravel-stripe-exceptions.svg)](https://github.com/ankurk91/laravel-stripe-exceptions/releases)
-[![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE.txt)
-[![Downloads](https://img.shields.io/packagist/dt/ankurk91/laravel-stripe-exceptions.svg)](https://packagist.org/packages/ankurk91/laravel-stripe-exceptions/stats)
+[![Packagist](https://badgen.net/packagist/v/ankurk91/laravel-stripe-exceptions)](https://packagist.org/packages/ankurk91/laravel-stripe-exceptions)
+[![GitHub tag](https://badgen.net/github/tag/ankurk91/laravel-stripe-exceptions)](https://github.com/ankurk91/laravel-stripe-exceptions/releases)
+[![License](https://badgen.net/packagist/license/ankurk91/laravel-stripe-exceptions)](https://packagist.org/packages/ankurk91/laravel-stripe-exceptions)
+[![Downloads](https://img.shields.io/packagist/dt/ankurk91/laravel-stripe-exceptions)](https://packagist.org/packages/ankurk91/laravel-stripe-exceptions/stats)
 
 This package makes it easy to handle [Stripe](https://github.com/stripe/stripe-php) exceptions in Laravel v6.0+
 
@@ -27,7 +27,7 @@ try {
         'currency' => 'usd',
     ]);
 } catch (\Throwable $exception) {
-    // send a JSON response
+    // send a errored JSON response
     throw new \Ankurk91\StripeExceptions\ApiException($exception);
 }
 ```
