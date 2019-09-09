@@ -84,7 +84,7 @@ abstract class AbstractException extends \Exception
      *
      * @param  \Illuminate\Http\Request  $request
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\JsonResponse
      */
     abstract function render($request);
 }
