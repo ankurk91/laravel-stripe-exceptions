@@ -22,27 +22,37 @@ class ApiException extends AbstractException
      */
     public function render($request)
     {
-        $e = $this->getPrevious();
-        $message = Lang::get('stripe::exceptions.api.unknown');
-        $errorCode = 500;
+        $exception = $this->getPrevious();
 
-        // https://stripe.com/docs/api/errors/handling?lang=php
-        if ($e instanceof Exception\CardException) {
-            $errorCode = 400;
-            $message = data_get($e->getJsonBody(), 'error.message', Lang::get('stripe::exceptions.api.invalid_card'));
-        } elseif ($e instanceof Exception\RateLimitException) {
-            $message = Lang::get('stripe::exceptions.api.rate_limit');
-        } elseif ($e instanceof Exception\InvalidRequestException) {
-            $errorCode = 400;
-            $message = Lang::get('stripe::exceptions.api.invalid_request');
-        } elseif ($e instanceof Exception\AuthenticationException) {
-            $message = Lang::get('stripe::exceptions.api.authentication');
-        } elseif ($e instanceof Exception\ApiConnectionException) {
-            $message = Lang::get('stripe::exceptions.api.connection');
-        } elseif ($e instanceof Exception\ApiErrorException) {
-            $message = Lang::get('stripe::exceptions.api.general');
+        $message = Lang::get('stripe::exceptions.api.unknown');
+        $httpCode = 500;
+
+        switch (get_class($exception)) {
+            case Exception\CardException::class:
+                $httpCode = 400;
+                $message = data_get(
+                    $exception->getJsonBody(), 'error.message',
+                    Lang::get('stripe::exceptions.api.invalid_card')
+                );
+                break;
+            case Exception\RateLimitException::class:
+                $message = Lang::get('stripe::exceptions.api.rate_limit');
+                break;
+            case Exception\InvalidRequestException::class:
+                $httpCode = 400;
+                $message = Lang::get('stripe::exceptions.api.invalid_request');
+                break;
+            case Exception\AuthenticationException::class:
+                $message = Lang::get('stripe::exceptions.api.authentication');
+                break;
+            case Exception\ApiConnectionException::class:
+                $message = Lang::get('stripe::exceptions.api.connection');
+                break;
+            case Exception\ApiErrorException::class:
+                $message = Lang::get('stripe::exceptions.api.general');
+                break;
         }
 
-        return Response::json(compact('message'), $errorCode);
+        return Response::json(compact('message'), $httpCode);
     }
 }
