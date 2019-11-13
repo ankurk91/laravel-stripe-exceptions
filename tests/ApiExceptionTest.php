@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Log;
-use Orchestra\Testbench\TestCase;
 use Ankurk91\StripeExceptions\ApiException;
 
 class ApiExceptionTest extends TestCase
