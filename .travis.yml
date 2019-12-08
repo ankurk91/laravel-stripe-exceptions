@@ -1,4 +1,4 @@
-dist: xenial
+dist: bionic
 
 language: php
 
@@ -6,6 +6,7 @@ language: php
 php:
   - 7.2
   - 7.3
+  - 7.4
 
 env:
   matrix:
