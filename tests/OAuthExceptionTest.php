@@ -27,7 +27,7 @@ class OAuthExceptionTest extends TestCase
     {
         $originalException = new \Stripe\Exception\OAuth\InvalidClientException();
         $exception = new OAuthException($originalException, "error");
-        $this->assertFalse($exception->shouldNotReport($originalException));
+        $this->assertTrue($exception->shouldReport($originalException));
 
         Log::shouldReceive('error')->once();
         $exception->report();
@@ -37,7 +37,7 @@ class OAuthExceptionTest extends TestCase
     {
         $originalException = new \Stripe\Exception\OAuth\InvalidGrantException();
         $exception = new OAuthException($originalException, "error");
-        $this->assertTrue($exception->shouldNotReport($originalException));
+        $this->assertFalse($exception->shouldReport($originalException));
 
         Log::shouldReceive('error')->never();
         $exception->report();

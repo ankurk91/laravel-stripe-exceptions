@@ -38,7 +38,7 @@ abstract class AbstractException extends \Exception
     {
         $original = $this->getPrevious();
 
-        if ($this->shouldNotReport($original)) {
+        if (!$this->shouldReport($original)) {
             return;
         }
 
@@ -49,18 +49,23 @@ abstract class AbstractException extends \Exception
     }
 
     /**
-     * Determine if the exception is in the "do not report" list.
+     * Determine if the exception should be reported.
      *
      * @param  \Throwable  $exception
      *
      * @return bool
      */
-    public function shouldNotReport(Throwable $exception)
+    public function shouldReport(Throwable $exception)
     {
-        return !Config::get('app.debug') &&
-            !is_null(Arr::first($this->dontReport, function ($type) use ($exception) {
-                return $exception instanceof $type;
-            }));
+        if (Config::get('app.debug')) {
+            return true;
+        }
+
+        $foundInReportList = Arr::first($this->dontReport, function ($class) use ($exception) {
+            return $exception instanceof $class;
+        });
+
+        return is_null($foundInReportList);
     }
 
     /**

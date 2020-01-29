@@ -24,7 +24,7 @@ class ApiExceptionTest extends TestCase
     {
         $originalException = new \Stripe\Exception\InvalidRequestException();
         $exception = new ApiException($originalException);
-        $this->assertFalse($exception->shouldNotReport($originalException));
+        $this->assertTrue($exception->shouldReport($originalException));
 
         Log::shouldReceive('error')->once();
         $exception->report();
@@ -34,7 +34,7 @@ class ApiExceptionTest extends TestCase
     {
         $originalException = new \Stripe\Exception\ApiConnectionException();
         $exception = new ApiException($originalException);
-        $this->assertTrue($exception->shouldNotReport($originalException));
+        $this->assertFalse($exception->shouldReport($originalException));
 
         Log::shouldReceive('error')->never();
         $exception->report();
@@ -46,7 +46,7 @@ class ApiExceptionTest extends TestCase
 
         $originalException = new \Stripe\Exception\ApiConnectionException();
         $exception = new ApiException($originalException);
-        $this->assertFalse($exception->shouldNotReport($originalException));
+        $this->assertTrue($exception->shouldReport($originalException));
 
         Log::shouldReceive('error')->once();
         $exception->report();
