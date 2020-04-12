@@ -4,7 +4,7 @@
 [![GitHub tag](https://badgen.net/github/tag/ankurk91/laravel-stripe-exceptions)](https://github.com/ankurk91/laravel-stripe-exceptions/releases)
 [![License](https://badgen.net/packagist/license/ankurk91/laravel-stripe-exceptions)](https://packagist.org/packages/ankurk91/laravel-stripe-exceptions)
 [![Downloads](https://img.shields.io/packagist/dt/ankurk91/laravel-stripe-exceptions)](https://packagist.org/packages/ankurk91/laravel-stripe-exceptions/stats)
-[![Build Status](https://travis-ci.com/ankurk91/laravel-stripe-exceptions.svg)](https://travis-ci.com/ankurk91/laravel-stripe-exceptions)
+![tests](https://github.com/ankurk91/laravel-stripe-exceptions/workflows/tests/badge.svg)
 [![codecov](https://codecov.io/gh/ankurk91/laravel-stripe-exceptions/branch/master/graph/badge.svg)](https://codecov.io/gh/ankurk91/laravel-stripe-exceptions)
 
 This package makes it easy to handle [Stripe](https://github.com/stripe/stripe-php) exceptions in Laravel v6.0+
@@ -29,7 +29,7 @@ try {
         'currency' => 'usd',
     ]);
 } catch (\Throwable $exception) {
-    // send an errored JSON response
+    // send back an errored JSON response to browser
     throw new \Ankurk91\StripeExceptions\ApiException($exception);
 }
 ```
