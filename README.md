@@ -4,10 +4,10 @@
 [![GitHub tag](https://badgen.net/github/tag/ankurk91/laravel-stripe-exceptions)](https://github.com/ankurk91/laravel-stripe-exceptions/releases)
 [![License](https://badgen.net/packagist/license/ankurk91/laravel-stripe-exceptions)](https://packagist.org/packages/ankurk91/laravel-stripe-exceptions)
 [![Downloads](https://img.shields.io/packagist/dt/ankurk91/laravel-stripe-exceptions)](https://packagist.org/packages/ankurk91/laravel-stripe-exceptions/stats)
-![tests](https://github.com/ankurk91/laravel-stripe-exceptions/workflows/tests/badge.svg)
+[![tests](https://github.com/ankurk91/laravel-stripe-exceptions/workflows/tests/badge.svg)](https://github.com/ankurk91/laravel-stripe-exceptions/actions)
 [![codecov](https://codecov.io/gh/ankurk91/laravel-stripe-exceptions/branch/master/graph/badge.svg)](https://codecov.io/gh/ankurk91/laravel-stripe-exceptions)
 
-This package makes it easy to handle [Stripe](https://github.com/stripe/stripe-php) exceptions in Laravel v6.0+
+This package makes it easy to handle [Stripe](https://github.com/stripe/stripe-php) exceptions in Laravel 
 
 How do you handle Stripe errors? Are you repeating [same code](https://stripe.com/docs/api/errors/handling?lang=php) again and again?
 
@@ -56,7 +56,7 @@ php artisan vendor:publish --provider="Ankurk91\StripeExceptions\StripeServicePr
 ```
 
 ## Features
-* Takes advantage of Laravel's inbuilt [Reportable & Renderable Exceptions](https://laravel.com/docs/6.x/errors#renderable-exceptions).
+* Takes advantage of Laravel's inbuilt [Reportable & Renderable Exceptions](https://laravel.com/docs/7.x/errors#renderable-exceptions).
 * Reports all exceptions when `APP_DEBUG` is `true`
 * Prevents logging of exceptions caused by user input, for example 'Invalid Card'
 * Captures logged-in user information when an exception gets reported
