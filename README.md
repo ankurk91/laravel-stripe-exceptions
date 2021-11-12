@@ -7,18 +7,23 @@
 [![tests](https://github.com/ankurk91/laravel-stripe-exceptions/workflows/tests/badge.svg)](https://github.com/ankurk91/laravel-stripe-exceptions/actions)
 [![codecov](https://codecov.io/gh/ankurk91/laravel-stripe-exceptions/branch/master/graph/badge.svg)](https://codecov.io/gh/ankurk91/laravel-stripe-exceptions)
 
-This package makes it easy to handle [Stripe](https://github.com/stripe/stripe-php) exceptions in Laravel 
+This package makes it easy to handle [Stripe](https://github.com/stripe/stripe-php) exceptions in Laravel
 
-How do you handle Stripe errors? Are you repeating [same code](https://stripe.com/docs/api/errors/handling?lang=php) again and again?
+How do you handle Stripe errors? Are you repeating [same code](https://stripe.com/docs/api/errors/handling?lang=php)
+again and again?
 
 ## Installation
+
 You can install the package via composer:
-```
+
+```bash
 composer require ankurk91/laravel-stripe-exceptions
 ```
 
 ## Usage
+
 Handle Stripe charge/transfer exceptions:
+
 ```php
 <?php
 
@@ -35,6 +40,7 @@ try {
 ```
 
 Handle Stripe connect exceptions:
+
 ```php
 <?php
 
@@ -50,22 +56,30 @@ try {
 ```
 
 ## Modifying error messages
+
 You can publish the translation messages via this command
-```
+
+```bash
 php artisan vendor:publish --provider="Ankurk91\StripeExceptions\StripeServiceProvider" --tag=translations
 ```
 
 ## Features
-* Takes advantage of Laravel's inbuilt [Reportable & Renderable Exceptions](https://laravel.com/docs/7.x/errors#renderable-exceptions).
+
+* Takes advantage of Laravel's
+  inbuilt [Reportable & Renderable Exceptions](https://laravel.com/docs/8.x/errors#renderable-exceptions).
 * Reports all exceptions when `APP_DEBUG` is `true`
 * Prevents logging of exceptions caused by user input, for example 'Invalid Card'
 * Captures logged-in user information when an exception gets reported
 
 ## Security
-If you discover any security related issues, please email `pro.ankurk1[at]gmail[dot]com` instead of using the issue tracker.
+
+If you discover any security related issues, please email `pro.ankurk1[at]gmail[dot]com` instead of using the issue
+tracker.
 
 ## Changelog
+
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
 
 ## License
+
 The [MIT](https://opensource.org/licenses/MIT) License.
