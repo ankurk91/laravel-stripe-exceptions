@@ -1,5 +1,11 @@
 # Changelog
 
+## [3.1.0](https://github.com/ankurk91/laravel-stripe-exceptions/compare/3.0.0...3.1.0)
+
+* Drop support for Laravel 7.x
+* Drop support for php v7.3
+* Test on php v8.1
+
 ## [3.0.0](https://github.com/ankurk91/laravel-stripe-exceptions/compare/2.0.0...3.0.0)
 
 * Upgrade to use `stripe-php@7.0`
