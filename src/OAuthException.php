@@ -11,15 +11,10 @@ class OAuthException extends AbstractException
 {
     /**
      * Where to redirect when an exception occurred.
-     *
-     * @var string
      */
-    protected $redirectTo;
+    protected string $redirectTo;
 
-    /**
-     * {@inheritdoc}
-     */
-    protected $dontReport = [
+    protected array $dontReport = [
         Exception\OAuth\InvalidGrantException::class,
         Exception\OAuth\InvalidScopeException::class,
         Exception\OAuth\UnsupportedResponseTypeException::class,

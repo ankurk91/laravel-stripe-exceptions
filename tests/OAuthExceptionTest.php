@@ -29,8 +29,9 @@ class OAuthExceptionTest extends TestCase
         $exception = new OAuthException($originalException, "error");
         $this->assertTrue($exception->shouldReport($originalException));
 
+        $handler = $this->app->make(\Illuminate\Foundation\Exceptions\Handler::class);
         Log::shouldReceive('error')->once();
-        $exception->report();
+        $handler->report($exception);
     }
 
     public function testItShouldNotReport()
@@ -39,8 +40,9 @@ class OAuthExceptionTest extends TestCase
         $exception = new OAuthException($originalException, "error");
         $this->assertFalse($exception->shouldReport($originalException));
 
+        $handler = $this->app->make(\Illuminate\Foundation\Exceptions\Handler::class);
         Log::shouldReceive('error')->never();
-        $exception->report();
+        $handler->report($exception);
     }
 
     public function testUnknownException()

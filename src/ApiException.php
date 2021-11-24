@@ -8,10 +8,7 @@ use Illuminate\Support\Facades\Lang;
 
 class ApiException extends AbstractException
 {
-    /**
-     * {@inheritdoc}
-     */
-    protected $dontReport = [
+    protected array $dontReport = [
         Exception\ApiConnectionException::class,
         Exception\CardException::class,
         Exception\IdempotencyException::class,
