@@ -8,11 +8,13 @@ class StripeServiceProvider extends ServiceProvider
 {
     public function boot()
     {
+        $langDirPath = __DIR__ . '/../resources/lang';
+
         $this->publishes([
-            __DIR__ . '/../resources/lang' => resource_path('lang/vendor/stripe'),
+            $langDirPath => lang_path('vendor/stripe'),
         ], 'translations');
 
-        $this->loadTranslationsFrom(__DIR__ . '/../resources/lang/', 'stripe');
+        $this->loadTranslationsFrom($langDirPath, 'stripe');
     }
 
     public function register()
