@@ -10,9 +10,11 @@ class StripeServiceProvider extends ServiceProvider
     {
         $langDirPath = __DIR__ . '/../resources/lang';
 
-        $this->publishes([
-            $langDirPath => lang_path('vendor/stripe'),
-        ], 'translations');
+        if ($this->app->runningInConsole()) {
+            $this->publishes([
+                $langDirPath => lang_path('vendor/stripe'),
+            ], 'translations');
+        }
 
         $this->loadTranslationsFrom($langDirPath, 'stripe');
     }
