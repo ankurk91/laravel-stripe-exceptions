@@ -1,12 +1,16 @@
 <?php
-namespace Ankurk91\Tests\LaravelStripeExceptions;
+declare(strict_types=1);
+
+namespace Ankurk91\LaravelStripeExceptions\Tests;
 
 use Orchestra\Testbench\TestCase as BaseTestCase;
 
 class TestCase extends BaseTestCase
 {
-    protected function getPackageProviders($app)
+    protected function getPackageProviders($app): array
     {
-        return [\Ankurk91\StripeExceptions\StripeServiceProvider::class];
+        return [
+            \Ankurk91\StripeExceptions\StripeServiceProvider::class,
+        ];
     }
 }

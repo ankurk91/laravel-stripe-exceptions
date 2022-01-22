@@ -5,7 +5,7 @@
 [![License](https://badgen.net/packagist/license/ankurk91/laravel-stripe-exceptions)](https://packagist.org/packages/ankurk91/laravel-stripe-exceptions)
 [![Downloads](https://img.shields.io/packagist/dt/ankurk91/laravel-stripe-exceptions)](https://packagist.org/packages/ankurk91/laravel-stripe-exceptions/stats)
 [![tests](https://github.com/ankurk91/laravel-stripe-exceptions/workflows/tests/badge.svg)](https://github.com/ankurk91/laravel-stripe-exceptions/actions)
-[![codecov](https://codecov.io/gh/ankurk91/laravel-stripe-exceptions/branch/master/graph/badge.svg)](https://codecov.io/gh/ankurk91/laravel-stripe-exceptions)
+[![codecov](https://codecov.io/gh/ankurk91/laravel-stripe-exceptions/branch/main/graph/badge.svg)](https://codecov.io/gh/ankurk91/laravel-stripe-exceptions)
 
 This package makes it easy to handle [Stripe](https://github.com/stripe/stripe-php) exceptions in Laravel
 
@@ -73,8 +73,7 @@ php artisan vendor:publish --provider="Ankurk91\StripeExceptions\StripeServicePr
 
 ## Security
 
-If you discover any security related issues, please email `pro.ankurk1[at]gmail[dot]com` instead of using the issue
-tracker.
+If you discover any security issues, please email `pro.ankurk1[at]gmail[dot]com` instead of using the issue tracker.
 
 ## Changelog
 

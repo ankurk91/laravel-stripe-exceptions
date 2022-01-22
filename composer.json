@@ -16,9 +16,9 @@
   ],
   "require": {
     "php": "^8.0.0",
-    "illuminate/http": "^8.65 || ^9.0",
-    "illuminate/support": "^8.65|| ^9.0",
-    "illuminate/translation": "^8.65|| ^9.0",
+    "illuminate/http": "^8.54 || ^9.0",
+    "illuminate/support": "^8.54 || ^9.0",
+    "illuminate/translation": "^8.54 || ^9.0",
     "stripe/stripe-php": "^7.51.0"
   },
   "require-dev": {
@@ -44,11 +44,12 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "Ankurk91\\Tests\\LaravelStripeExceptions\\": "tests/"
+      "Ankurk91\\LaravelStripeExceptions\\Tests\\": "tests/"
     }
   },
   "scripts": {
-    "test": "vendor/bin/phpunit --testdox --color=always"
+    "test": "vendor/bin/phpunit --testdox --color=always",
+    "test:coverage": "vendor/bin/phpunit --testdox --color=always --coverage-clover=coverage.xml"
   },
   "minimum-stability": "dev",
   "prefer-stable": true

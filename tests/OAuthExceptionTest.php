@@ -1,11 +1,12 @@
 <?php
+declare(strict_types=1);
 
-namespace Ankurk91\Tests\LaravelStripeExceptions;
+namespace Ankurk91\LaravelStripeExceptions\Tests;
 
+use Ankurk91\StripeExceptions\OAuthException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Log;
-use Ankurk91\StripeExceptions\OAuthException;
 
 class OAuthExceptionTest extends TestCase
 {

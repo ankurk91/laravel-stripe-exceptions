@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Ankurk91\StripeExceptions;
 
@@ -32,19 +33,12 @@ class OAuthException extends AbstractException
      */
     public function render($request)
     {
-        switch (get_class($this->getPrevious())) {
-            case Exception\OAuth\InvalidClientException::class:
-                $message = Lang::get('stripe::exceptions.oauth.invalid_client');
-                break;
-            case Exception\OAuth\InvalidRequestException::class:
-                $message = Lang::get('stripe::exceptions.oauth.invalid_request');
-                break;
-            case Exception\OAuth\OAuthErrorException::class:
-                $message = Lang::get('stripe::exceptions.oauth.general');
-                break;
-            default:
-                $message = Lang::get('stripe::exceptions.oauth.unknown');
-        }
+        $message = match (get_class($this->getPrevious())) {
+            Exception\OAuth\InvalidClientException::class => Lang::get('stripe::exceptions.oauth.invalid_client'),
+            Exception\OAuth\InvalidRequestException::class => Lang::get('stripe::exceptions.oauth.invalid_request'),
+            Exception\OAuth\OAuthErrorException::class => Lang::get('stripe::exceptions.oauth.general'),
+            default => Lang::get('stripe::exceptions.oauth.unknown'),
+        };
 
         return Response::redirectTo($this->redirectTo)->with('error', $message);
     }
