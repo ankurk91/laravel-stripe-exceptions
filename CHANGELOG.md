@@ -1,5 +1,10 @@
 # Changelog
 
+## [3.3.0](https://github.com/ankurk91/laravel-stripe-exceptions/compare/3.2.0...3.3.0)
+
+* Allow Laravel v9.x
+* Drop support for php 7.4
+
 ## [3.2.0](https://github.com/ankurk91/laravel-stripe-exceptions/compare/3.1.0...3.2.0)
 
 * Let Laravel handle the reporting and logging of exceptions
