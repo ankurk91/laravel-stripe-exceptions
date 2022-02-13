@@ -13,7 +13,7 @@ class StripeServiceProvider extends ServiceProvider
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                $langDirPath => lang_path('vendor/stripe'),
+                $langDirPath => $this->app->langPath('vendor/stripe'),
             ], 'translations');
         }
 
