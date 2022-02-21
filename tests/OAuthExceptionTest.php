@@ -27,7 +27,7 @@ class OAuthExceptionTest extends TestCase
     public function testItShouldReport()
     {
         $originalException = new \Stripe\Exception\OAuth\InvalidClientException();
-        $exception = new OAuthException($originalException, "error");
+        $exception = new OAuthException($originalException, "errorPage");
         $this->assertTrue($exception->shouldReport($originalException));
 
         $handler = $this->app->make(\Illuminate\Foundation\Exceptions\Handler::class);

@@ -9,8 +9,8 @@
 
 This package makes it easy to handle [Stripe](https://github.com/stripe/stripe-php) exceptions in Laravel
 
-How do you handle Stripe errors? Are you repeating [same code](https://stripe.com/docs/api/errors/handling?lang=php)
-again and again?
+How do you handle Stripe errors? 
+Are you repeating [same code](https://stripe.com/docs/api/errors/handling?lang=php) again and again?
 
 ## Installation
 
