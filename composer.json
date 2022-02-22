@@ -44,7 +44,7 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "Ankurk91\\LaravelStripeExceptions\\Tests\\": "tests/"
+      "Ankurk91\\StripeExceptions\\Tests\\": "tests/"
     }
   },
   "scripts": {

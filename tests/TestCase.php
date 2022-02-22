@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Ankurk91\LaravelStripeExceptions\Tests;
+namespace Ankurk91\StripeExceptions\Tests;
 
 use Orchestra\Testbench\TestCase as BaseTestCase;
 

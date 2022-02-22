@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Ankurk91\LaravelStripeExceptions\Tests;
+namespace Ankurk91\StripeExceptions\Tests;
 
 use Ankurk91\StripeExceptions\ApiException;
 use Illuminate\Http\Request;
@@ -13,12 +13,15 @@ class ApiExceptionTest extends TestCase
 {
     public function testItReturnResponse()
     {
-        $exception = new ApiException(new \Stripe\Exception\InvalidRequestException("Invalid Request"));
+        $stripeException = new \Stripe\Exception\InvalidRequestException("Invalid Request");
+        $stripeException->setStripeCode('invalid_request');
+        $exception = new ApiException($stripeException);
         $response = $exception->render(new Request());
 
         $this->assertInstanceOf(\Illuminate\Http\JsonResponse::class, $response);
         $this->assertEquals($response->getStatusCode(), 400);
         $this->assertEquals($response->getData()->message, Lang::get('stripe::exceptions.api.invalid_request'));
+        $this->assertEquals($response->getData()->stripe?->code, $stripeException->getStripeCode());
     }
 
     public function testItShouldReport()
@@ -58,17 +61,21 @@ class ApiExceptionTest extends TestCase
 
     public function testCardExceptionJsonBody()
     {
-        $originalException = \Stripe\Exception\CardException::factory(
+        $stripeException = \Stripe\Exception\CardException::factory(
             "Card error",
             400,
             [],
             ['error' => ['message' => 'Your card was declined.']]
         );
+        $stripeException->setStripeCode('invalid_card');
+        $stripeException->setDeclineCode('card_expired');
 
-        $exception = new ApiException($originalException);
+        $exception = new ApiException($stripeException);
         $response = $exception->render(new Request());
         $this->assertEquals($response->getStatusCode(), 400);
         $this->assertEquals($response->getData()->message, 'Your card was declined.');
+        $this->assertEquals($response->getData()->stripe?->code, $stripeException->getStripeCode());
+        $this->assertEquals($response->getData()->stripe?->declined_code, $stripeException->getDeclineCode());
     }
 
     public function testUnknownException()
