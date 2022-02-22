@@ -1,5 +1,9 @@
 # Changelog
 
+## [3.4.0](https://github.com/ankurk91/laravel-stripe-exceptions/compare/3.3.0...3.4.0)
+
+* Add more information to error response, like `declined_code` for credit card exception etc.
+
 ## [3.3.0](https://github.com/ankurk91/laravel-stripe-exceptions/compare/3.2.0...3.3.0)
 
 * Allow Laravel v9.x

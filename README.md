@@ -22,7 +22,7 @@ composer require ankurk91/laravel-stripe-exceptions
 
 ## Usage
 
-Handle Stripe charge/transfer exceptions:
+Handle Stripe charge/transfer exceptions by wrapping the API calls in try/catch like:
 
 ```php
 <?php
@@ -51,6 +51,7 @@ try {
     ]);
 } catch (\Throwable $exception) {
     // redirect with failed error message
+    // `error` will be flashed in session to destination page
     throw new \Ankurk91\StripeExceptions\OAuthException($exception, route('stripe.failed'));
 }
 ```
@@ -66,7 +67,7 @@ php artisan vendor:publish --provider="Ankurk91\StripeExceptions\StripeServicePr
 ## Features
 
 * Takes advantage of Laravel's
-  inbuilt [Reportable & Renderable Exceptions](https://laravel.com/docs/8.x/errors#renderable-exceptions).
+  inbuilt [Reportable & Renderable Exceptions](https://laravel.com/docs/9.x/errors#renderable-exceptions).
 * Reports all exceptions when `APP_DEBUG` is `true`
 * Prevents logging of exceptions caused by user input, for example 'Invalid Card'
 * Captures logged-in user information when an exception gets reported
