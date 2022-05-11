@@ -16,14 +16,14 @@
   ],
   "require": {
     "php": "^8.0.0",
-    "illuminate/http": "^8.54 || ^9.3",
-    "illuminate/support": "^8.54 || ^9.3",
-    "illuminate/translation": "^8.54 || ^9.3",
+    "illuminate/http": "^9.8",
+    "illuminate/support": "^9.8",
+    "illuminate/translation": "^9.8",
     "stripe/stripe-php": "^7.51.0 || ^8.0"
   },
   "require-dev": {
     "mockery/mockery": "^1.4",
-    "orchestra/testbench": "^6.23.0 || ^7.1",
+    "orchestra/testbench": "^7.4",
     "phpunit/phpunit": "^9.5.10"
   },
   "autoload": {
