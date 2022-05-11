@@ -19,7 +19,7 @@
     "illuminate/http": "^8.54 || ^9.3",
     "illuminate/support": "^8.54 || ^9.3",
     "illuminate/translation": "^8.54 || ^9.3",
-    "stripe/stripe-php": "^7.51.0"
+    "stripe/stripe-php": "^7.51.0 || ^8.0"
   },
   "require-dev": {
     "mockery/mockery": "^1.4",
