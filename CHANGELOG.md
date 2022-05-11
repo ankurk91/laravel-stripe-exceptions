@@ -1,5 +1,9 @@
 # Changelog
 
+## [3.5.0](https://github.com/ankurk91/laravel-stripe-exceptions/compare/3.4.1...3.5.0)
+
+* Drop support for Laravel v8.x
+
 ## [3.4.0](https://github.com/ankurk91/laravel-stripe-exceptions/compare/3.3.0...3.4.0)
 
 * Add more information to error response, like `declined_code` for credit card exception etc.
