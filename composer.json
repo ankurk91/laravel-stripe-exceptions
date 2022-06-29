@@ -16,9 +16,9 @@
   ],
   "require": {
     "php": "^8.0.0",
-    "illuminate/http": "^9.8",
-    "illuminate/support": "^9.8",
-    "illuminate/translation": "^9.8",
+    "illuminate/http": "^9.19",
+    "illuminate/support": "^9.19",
+    "illuminate/translation": "^9.19",
     "stripe/stripe-php": "^7.51.0 || ^8.0"
   },
   "require-dev": {

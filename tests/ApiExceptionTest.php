@@ -31,7 +31,7 @@ class ApiExceptionTest extends TestCase
         $this->assertTrue($exception->shouldReport($originalException));
 
         $handler = $this->app->make(\Illuminate\Foundation\Exceptions\Handler::class);
-        Log::shouldReceive('log')->once();
+        Log::shouldReceive('error')->once();
         $handler->report($exception);
     }
 
@@ -42,7 +42,7 @@ class ApiExceptionTest extends TestCase
         $this->assertFalse($exception->shouldReport($originalException));
 
         $handler = $this->app->make(\Illuminate\Foundation\Exceptions\Handler::class);
-        Log::shouldReceive('log')->never();
+        Log::shouldReceive('error')->never();
         $handler->report($exception);
     }
 
@@ -55,7 +55,7 @@ class ApiExceptionTest extends TestCase
         $this->assertTrue($exception->shouldReport($originalException));
 
         $handler = $this->app->make(\Illuminate\Foundation\Exceptions\Handler::class);
-        Log::shouldReceive('log')->once();
+        Log::shouldReceive('error')->once();
         $handler->report($exception);
     }
 
