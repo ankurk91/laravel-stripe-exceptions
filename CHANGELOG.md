@@ -1,10 +1,15 @@
 # Changelog
 
-## [3.6.0](https://github.com/ankurk91/laravel-stripe-exceptions/compare/3.5.0...3.6.0)
+## [3.7.0](https://github.com/ankurk91/laravel-stripe-exceptions/compare/3.6.0...3.7.0)
 
 * Test on php v8.2
 * Remove support for stripe-php v8.0
 * Add support for stripe-php v10.0
+
+## [3.6.0](https://github.com/ankurk91/laravel-stripe-exceptions/compare/3.5.0...3.6.0)
+
+* Remove support for stripe-php v7.0
+* Add support for stripe-php v9.0
 
 ## [3.5.0](https://github.com/ankurk91/laravel-stripe-exceptions/compare/3.4.1...3.5.0)
 
