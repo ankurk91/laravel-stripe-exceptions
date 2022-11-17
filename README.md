@@ -1,8 +1,8 @@
 # Stripe Exceptions for Laravel
 
 [![Packagist](https://badgen.net/packagist/v/ankurk91/laravel-stripe-exceptions)](https://packagist.org/packages/ankurk91/laravel-stripe-exceptions)
-[![GitHub tag](https://badgen.net/github/tag/ankurk91/laravel-stripe-exceptions)](https://github.com/ankurk91/laravel-stripe-exceptions/releases)
-[![License](https://badgen.net/packagist/license/ankurk91/laravel-stripe-exceptions)](https://packagist.org/packages/ankurk91/laravel-stripe-exceptions)
+[![GitHub tag](https://badgen.net/github/tag/ankurk91/laravel-stripe-exceptions)](https://github.com/ankurk91/laravel-stripe-exceptions/tags)
+[![License](https://badgen.net/packagist/license/ankurk91/laravel-stripe-exceptions)](LICENSE.txt)
 [![Downloads](https://img.shields.io/packagist/dt/ankurk91/laravel-stripe-exceptions)](https://packagist.org/packages/ankurk91/laravel-stripe-exceptions/stats)
 [![tests](https://github.com/ankurk91/laravel-stripe-exceptions/workflows/tests/badge.svg)](https://github.com/ankurk91/laravel-stripe-exceptions/actions)
 [![codecov](https://codecov.io/gh/ankurk91/laravel-stripe-exceptions/branch/main/graph/badge.svg)](https://codecov.io/gh/ankurk91/laravel-stripe-exceptions)
