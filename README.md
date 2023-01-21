@@ -69,7 +69,7 @@ php artisan vendor:publish --provider="Ankurk91\StripeExceptions\StripeServicePr
 * Takes advantage of Laravel's
   inbuilt [Reportable & Renderable Exceptions](https://laravel.com/docs/9.x/errors#renderable-exceptions).
 * Reports all exceptions when `APP_DEBUG` is `true`
-* Prevents logging of exceptions caused by user input, for example 'Invalid Card'
+* Prevents logging of exceptions caused by user input, for example `Invalid Card`
 * Captures logged-in user information when an exception gets reported
 
 ## Security

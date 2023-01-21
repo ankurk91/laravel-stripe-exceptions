@@ -22,11 +22,12 @@ jobs:
       matrix:
         php: [ 8.0, 8.1, 8.2 ]
         laravel: [ 9, 10 ]
+        stripe: [ 8, 9, 10 ]
         exclude:
           - php: 8.0
             laravel: 10
 
-    name: php v${{ matrix.php }} - Laravel v${{ matrix.laravel }}
+    name: php v${{ matrix.php }} - Laravel v${{ matrix.laravel }} - Stripe v${{ matrix.stripe }}
 
     steps:
       - name: Checkout code
@@ -43,7 +44,9 @@ jobs:
       - name: Install dependencies
         run: |
           composer require "illuminate/contracts=^${{ matrix.laravel }}" --dev --no-update
+          composer require "stripe/stripe-php=^${{ matrix.stripe }}"
           composer update --prefer-dist --no-interaction --no-progress
+          composer show -D
 
       - name: Execute tests
         run: composer test:coverage

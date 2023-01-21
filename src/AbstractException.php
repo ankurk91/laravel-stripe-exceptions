@@ -3,12 +3,13 @@ declare(strict_types=1);
 
 namespace Ankurk91\StripeExceptions;
 
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Config;
 use Throwable;
 
-abstract class AbstractException extends \Exception
+abstract class AbstractException extends Exception
 {
     protected array $dontReport = [
         //

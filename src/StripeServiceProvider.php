@@ -7,7 +7,7 @@ use Illuminate\Support\ServiceProvider;
 
 class StripeServiceProvider extends ServiceProvider
 {
-    public function boot()
+    public function boot(): void
     {
         $langDirPath = __DIR__ . '/../resources/lang';
 
@@ -20,8 +20,4 @@ class StripeServiceProvider extends ServiceProvider
         $this->loadTranslationsFrom($langDirPath, 'stripe');
     }
 
-    public function register()
-    {
-        //
-    }
 }
