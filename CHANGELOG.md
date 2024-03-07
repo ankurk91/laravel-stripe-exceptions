@@ -1,6 +1,6 @@
 # Changelog
 
-## [3.10.0](https://github.com/ankurk91/laravel-stripe-exceptions/compare/3.9.0...3.10.0)
+## [3.13.0](https://github.com/ankurk91/laravel-stripe-exceptions/compare/3.12.0...3.13.0)
 
 * Allow Laravel v11
 * Drop support for php 8.1
