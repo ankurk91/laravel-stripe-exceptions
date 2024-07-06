@@ -1,5 +1,9 @@
 # Changelog
 
+## [3.14.0](https://github.com/ankurk91/laravel-stripe-exceptions/compare/3.13.0...3.14.0)
+
+* Allow stripe-php sdk v14 and v15
+
 ## [3.13.0](https://github.com/ankurk91/laravel-stripe-exceptions/compare/3.12.0...3.13.0)
 
 * Allow Laravel v11
