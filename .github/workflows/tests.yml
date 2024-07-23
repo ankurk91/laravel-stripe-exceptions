@@ -22,7 +22,7 @@ jobs:
       matrix:
         php: [ 8.2, 8.3 ]
         laravel: [ 10, 11 ]
-        stripe: [ 10, 12, 13, 14, 15 ]
+        stripe: [ 12, 13, 14, 15 ]
 
     name: php v${{ matrix.php }} - Laravel v${{ matrix.laravel }} - Stripe v${{ matrix.stripe }}
 
