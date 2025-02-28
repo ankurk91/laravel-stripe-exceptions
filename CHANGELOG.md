@@ -1,5 +1,10 @@
 # Changelog
 
+## [3.17.0](https://github.com/ankurk91/laravel-stripe-exceptions/compare/3.16.0...3.17.0)
+
+* Allow Laravel 12
+* Drop Laravel 10
+
 ## [3.16.0](https://github.com/ankurk91/laravel-stripe-exceptions/compare/3.15.0...3.16.0)
 
 * Allow stripe-php sdk v16.x

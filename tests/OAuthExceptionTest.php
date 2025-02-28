@@ -7,7 +7,11 @@ use Ankurk91\StripeExceptions\OAuthException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Log;
+use PHPUnit\Framework\Attributes\CoversClass;
 
+
+#[CoversClass(OAuthException::class)]
+#[CoversClass(\Ankurk91\StripeExceptions\StripeServiceProvider::class)]
 class OAuthExceptionTest extends TestCase
 {
     public function testItReturnResponse()

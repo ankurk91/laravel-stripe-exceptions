@@ -8,7 +8,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Log;
+use PHPUnit\Framework\Attributes\CoversClass;
 
+#[CoversClass(ApiException::class)]
+#[CoversClass(\Ankurk91\StripeExceptions\StripeServiceProvider::class)]
 class ApiExceptionTest extends TestCase
 {
     public function testItReturnResponse()
